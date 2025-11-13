@@ -1,0 +1,15 @@
+<!-- <input type="checkbox" (change)="toggleTask(id, 'toto')"> -->
+<li [class.terminee]="terminee()">
+  <input type="checkbox" (change)="toggleTask()" />
+  <span>{{ titre() }}</span>
+  <input type="checkbox" (change)="selectTask()" class="selectInput"/>
+
+  @if (terminee()) {
+  <span class="badge-termine"> Fait</span>
+  }
+
+  <button (click)="deleteTask()">
+      Supprimer 
+  </button>
+    
+</li>

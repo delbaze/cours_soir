@@ -1,0 +1,27 @@
+<ul>
+    @for(user of users() ; track user.id) {
+    <li>{{user.name}}</li>
+    }
+</ul>
+
+@if (loadingState()){
+<p>Chargement ...</p>
+} @else if (errorState()){
+<div>{{errorState()}}</div>
+} @else {
+<ul>
+    @for(user of usersState() ; track user.id) {
+    <li>{{user.name}}</li>
+    }
+</ul>
+<!-- @if (usersState().loading){
+<p>Chargement ...</p>
+} @else if (usersState().error){
+<div>{{usersState().error}}</div>
+} @else {
+<ul>
+    @for(user of usersState().data ; track user.id) {
+    <li>{{user.name}}</li>
+    }
+</ul> -->
+}
