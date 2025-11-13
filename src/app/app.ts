@@ -7,6 +7,7 @@ import { TasksService } from './services/tasks-service';
 import { debounce, debounceTime, filter, fromEvent, map, Observable, of } from 'rxjs';
 import { Timer } from './demo/timer/timer';
 import { UserList } from './users/user-list/user-list';
+import { Header } from './layout/header/header';
 export interface Tache {
   id: number;
   titre: string;
@@ -15,7 +16,7 @@ export interface Tache {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule, TaskItem, Timer, UserList],
+  imports: [CommonModule, RouterOutlet, FormsModule, TaskItem, Timer, Header],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
