@@ -7,15 +7,21 @@ import { AdminLayout } from './admin/admin-layout/admin-layout';
 import { AdminDashboard } from './admin/admin-dashboard/admin-dashboard';
 import { AdminSettings } from './admin/admin-settings/admin-settings';
 import { authGuard } from './guards/auth.gard';
+import { Login } from './auth/login/login';
+import { roleGuard } from './guards/role.guard';
+import { LoginReactive } from './auth/login-reactive/login-reactive';
 
 export const routes: Routes = [
   { path: '', component: Home },
-  { path: 'users', component: UserList },
+  { path: 'users', component: UserList, canActivate: [authGuard] },
   { path: 'user/:id', component: UserDetails }, //http://localhost:4200/user/123456
+  { path: 'login', component: LoginReactive },
+  // { path: 'login', component: Login },
   {
-    path: 'admin', 
-    canActivate: [authGuard],
-    component: AdminLayout,// http://localhost:4200/admin avec le router-outlet
+    path: 'admin',
+    canActivate: [roleGuard('admin')],
+    // canActivate: [authGuard],
+    component: AdminLayout, // http://localhost:4200/admin avec le router-outlet
     children: [
       { path: '', component: AdminDashboard }, // http://localhost:4200/admin toujours puisque le path est ''
       { path: 'settings', component: AdminSettings }, // http://localhost:4200/admin/settings

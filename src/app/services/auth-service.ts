@@ -5,11 +5,14 @@ import { Injectable, signal } from '@angular/core';
 })
 export class AuthService {
   private _isAuthenticated = signal(false);
+  private _role = signal<'admin' | 'user'>('user');
   isAuthenticated = this._isAuthenticated.asReadonly();
+  role = this._role.asReadonly();
 
   login(username: string, password: string): boolean {
     if (username === 'admin' && password === 'admin') {
       this._isAuthenticated.set(true);
+      this._role.set('admin');
       localStorage.setItem('isAuth', 'true');
       return true;
     }

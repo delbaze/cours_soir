@@ -7,7 +7,7 @@
     <h1>Ma Todo List</h1>
 
     <div>
-        <input id="inputTache" [ngModel]="nouvelleTache()" (ngModelChange)="nouvelleTache.set($event)"
+        <input name="inputTache" id="inputTache" [ngModel]="nouvelleTache()" (ngModelChange)="nouvelleTache.set($event)"
             (keyup.enter)="ajouterTache()" placeholder="Nouvelle tâche..." #inputTache>
         <button (click)="(ajouterTache())">
             Ajouter

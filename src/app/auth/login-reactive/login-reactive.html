@@ -1,0 +1,45 @@
+<div>
+    <h2>Connexion reactive</h2>
+    <button (click)="addContact()">Ajouter un nouveau contact</button>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label>Username</label>
+            <input type="text" formControlName="username">
+            @if (loginForm.controls.username.touched && loginForm.controls.username.invalid) {
+            @if (loginForm.controls.username.errors?.['required']) {
+            <div>Le username est requis</div>
+            } @else if (loginForm.controls.username.errors?.['noSpaces']) {
+            <div>Pas d'espaces! </div>
+            }
+            @else {
+            <div>Probleme avec votre username</div>
+            }
+            }
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" formControlName="password">
+            @if (loginForm.controls.password.touched && loginForm.controls.password.invalid) {
+            @if (loginForm.controls.password.errors?.['required']) {
+            <div>Le mot de passe est requis</div>
+            }
+            @if (loginForm.controls.password.errors?.['minlength']) {
+            <div>Le mot de passe est trop court (3 min)</div>
+            }
+            }
+        </div>
+
+        <div formArrayName="contacts">
+            @for (contact of contacts.controls; track $index) {
+            <div [formGroupName]="$index">
+
+                <input formControlName="name" placeholder="nom">
+                <input formControlName="phone" placeholder="téléphone">
+                <button (click)="removeContact($index)">X</button>
+            </div>
+            }
+        </div>
+        <button type="submit">Se connecter</button>
+    </form>
+</div>
