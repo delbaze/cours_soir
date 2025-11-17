@@ -1,11 +1,13 @@
 <header>
     <nav>
         <a routerLink="/">Accueil</a>
-        <a routerLink="/users" >Liste des utilisateurs</a>
+        <a routerLink="/usersfull">(Complet) Liste des utilisateurs</a>
+        <a routerLink="/users">Liste des utilisateurs</a>
         <a [routerLink]="['/user', 123]">Voir l'utilisateur 123</a>
         <a [routerLink]="['/user', 456]" [queryParams]="{info: 'toto', info2: 'tata'}">Voir l'utilisateur 456</a>
         <a routerLink="/admin">Administration</a>
+        <a routerLink="/login">Login</a>
         <!-- <a routerLink="./edit">Liste des utilisateurs</a> -->
-         <button (click)="logout()">Se déconnecter</button>
+        <button (click)="logout()">Se déconnecter</button>
     </nav>
 </header>

@@ -10,9 +10,11 @@ import { authGuard } from './guards/auth.gard';
 import { Login } from './auth/login/login';
 import { roleGuard } from './guards/role.guard';
 import { LoginReactive } from './auth/login-reactive/login-reactive';
+import { UserListFull } from './users/user-list-full/user-list-full';
 
 export const routes: Routes = [
   { path: '', component: Home },
+  { path: 'usersfull', component: UserListFull },
   { path: 'users', component: UserList, canActivate: [authGuard] },
   { path: 'user/:id', component: UserDetails }, //http://localhost:4200/user/123456
   { path: 'login', component: LoginReactive },

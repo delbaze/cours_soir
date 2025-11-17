@@ -8,6 +8,7 @@ import { debounce, debounceTime, filter, fromEvent, map, Observable, of } from '
 import { Timer } from './demo/timer/timer';
 import { UserList } from './users/user-list/user-list';
 import { Header } from './layout/header/header';
+import { LoadingSpinner } from './layout/loading-spinner/loading-spinner';
 export interface Tache {
   id: number;
   titre: string;
@@ -16,7 +17,7 @@ export interface Tache {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule, TaskItem, Timer, Header],
+  imports: [CommonModule, RouterOutlet, FormsModule, TaskItem, Timer, Header, LoadingSpinner],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

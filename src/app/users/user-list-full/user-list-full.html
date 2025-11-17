@@ -1,0 +1,25 @@
+<div>
+    <h2>Liste des utilisateurs</h2>
+    @if (isLoading()) {
+    <div>Chargement en cours...</div>
+    }
+    @if (error()){
+    <div>
+        <button (click)="loadUsers()">Réessayer</button>
+    </div>
+    }
+    @if (users().length> 0){
+    <div>
+        @for (user of users(); track user.id){
+        <h3>{{ user.name}}</h3>
+        <p>{{ user.email}}</p>
+        <p>{{ user.username}}</p>
+        <button (click)="deleteUser(user.id)">Supprimer</button>
+        }
+    </div>
+    }
+
+    @if (!isLoading() && users().length === 0 && !error()){
+    <div>Aucun utilisateur</div>
+    }
+</div>

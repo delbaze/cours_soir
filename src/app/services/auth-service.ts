@@ -29,4 +29,8 @@ export class AuthService {
     const isAuth = localStorage.getItem('isAuth') === 'true';
     this._isAuthenticated.set(isAuth);
   }
+
+  getToken(){ // demo!!
+    return Date.now().toString()
+  }
 }
