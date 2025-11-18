@@ -15,7 +15,8 @@ import { UserListFull } from './users/user-list-full/user-list-full';
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'usersfull', component: UserListFull },
-  { path: 'users', component: UserList, canActivate: [authGuard] },
+  { path: 'users', component: UserList },
+  // { path: 'users', component: UserList, canActivate: [authGuard] },
   { path: 'user/:id', component: UserDetails }, //http://localhost:4200/user/123456
   { path: 'login', component: LoginReactive },
   // { path: 'login', component: Login },

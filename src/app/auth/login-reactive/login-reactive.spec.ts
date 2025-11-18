@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginReactive } from './login-reactive';
+import { provideRouter } from '@angular/router';
 
 describe('LoginReactive', () => {
   let component: LoginReactive;
@@ -8,9 +9,9 @@ describe('LoginReactive', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginReactive]
-    })
-    .compileComponents();
+      imports: [LoginReactive],
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoginReactive);
     component = fixture.componentInstance;

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserDetails } from './user-details';
+// import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 
 describe('UserDetails', () => {
   let component: UserDetails;
@@ -8,9 +10,9 @@ describe('UserDetails', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDetails]
-    })
-    .compileComponents();
+      imports: [UserDetails],
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UserDetails);
     component = fixture.componentInstance;
