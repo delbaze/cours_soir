@@ -13,12 +13,14 @@ import { LoginReactive } from './auth/login-reactive/login-reactive';
 import { UserListFull } from './users/user-list-full/user-list-full';
 import { Parent } from './demo/parent/parent';
 import { DomExample } from './demo/dom-example/dom-example';
+import { DemoStore } from './demo/demo-store/demo-store';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'usersfull', component: UserListFull },
   // { path: 'demo', component: Parent },
-  { path: 'demo', component: DomExample },
+  { path: 'demo', component: DemoStore },
+  // { path: 'demo', component: DomExample },
 
   { path: 'users', component: UserList },
   // { path: 'users', component: UserList, canActivate: [authGuard] },

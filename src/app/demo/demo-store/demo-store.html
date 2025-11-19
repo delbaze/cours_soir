@@ -1,0 +1,16 @@
+<h1>Liste des todos</h1>
+
+<h2>Formulaire d'ajout</h2>
+<div>
+    <input [(ngModel)]="newTodoTitle">
+    <button (click)="onAddTodo()">Ajouter</button>
+</div>
+
+<h2>Liste => </h2>
+<ul>
+    @for (todo of allTodos$ | async; track todo.id){
+    <li>{{ todo.title}}</li>
+    } @empty {
+    <div>Pas de todos pour l'instant</div>
+    }
+</ul>
