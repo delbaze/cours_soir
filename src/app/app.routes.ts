@@ -11,10 +11,15 @@ import { Login } from './auth/login/login';
 import { roleGuard } from './guards/role.guard';
 import { LoginReactive } from './auth/login-reactive/login-reactive';
 import { UserListFull } from './users/user-list-full/user-list-full';
+import { Parent } from './demo/parent/parent';
+import { DomExample } from './demo/dom-example/dom-example';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'usersfull', component: UserListFull },
+  // { path: 'demo', component: Parent },
+  { path: 'demo', component: DomExample },
+
   { path: 'users', component: UserList },
   // { path: 'users', component: UserList, canActivate: [authGuard] },
   { path: 'user/:id', component: UserDetails }, //http://localhost:4200/user/123456
